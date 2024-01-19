@@ -1,0 +1,76 @@
+<div class="container mx-24 mt-10 border border-blue-200 mb-5">
+    <form #hotelbooking="ngForm" (ngSubmit)="bookRoom(hotelbooking)">
+        <h1 class="text-center text-black text-2xl font-bold pt-6">
+            Hotel Reservation Form
+        </h1>
+        <div class="mx-6">
+
+            <label>Select Room/suite</label><br>
+            <select class="border border-black w-full px-3" name="type" id="type" [(ngModel)]="HotelBooking.type"
+                required>
+                <option value="" disabled selected>Select Room/Suite</option>
+                <option value="Room">Room</option>
+                <option value="Suite">Suite</option>
+            </select>
+
+            <!-- <span *ngIf="!hotelbooking.controls['type'].valid && hotelbooking.controls['type'].dirty "
+                class="text-red-600 text-center">It is a Required Field </span> -->
+
+        </div><br>
+        <div class="mx-6">
+            <label for="numberofRooms">Number of Rooms</label><br>
+            <select class="border border-black w-full px-3" name="numberofRooms" id="numberofRooms"
+                [(ngModel)]="HotelBooking.numberofRooms">
+                <option value="0" selected>0</option>
+                <option *ngFor="let number of HotelBooking.number" [value]="number">{{number}}</option>
+            </select>
+        </div><br>
+        <!-- <div class="mx-6">
+            <label for="numberofRooms">Number of Rooms</label><br>
+            <input class="border border-black w-full px-3" ngModel name="numberofRooms" type="number" required
+                placeholder="0">
+            <span *ngIf="!hotelbooking.controls['numberofRooms'].valid && hotelbooking.controls['numberofRooms'].dirty "
+                class="text-red-600 text-center">It is a Required Field </span>
+        </div><br> -->
+        <div class="mx-6">
+            <h1>Number of Persons</h1>
+            <input class="border border-black w-full px-3" ngModel name="numberofPersons" type="number" required
+                placeholder="0 ">
+            <!-- <span
+                *ngIf="!hotelbooking.controls['numberofPersons'].valid && hotelbooking.controls['numberofPersons'].dirty "
+                class="text-red-600 text-center">It is a Required Field </span> -->
+        </div><br>
+        <div class="mx-6">
+            <h1>Number of Childrens</h1>
+            <input class="border border-black w-full px-3" ngModel name="numberofChildrens" type="number" required
+                placeholder="0">
+            <!-- <span
+                *ngIf="!hotelbooking.controls['numberofChildrens'].valid && hotelbooking.controls['numberofChildrens'].dirty "
+                class="text-red-600 text-center">It is a Required Field </span> -->
+        </div><br>
+        <div class="mx-6">
+
+            <label for="restaurantFacilities">Do you want Restaurant facilities</label><br>
+            <select class="border border-black px-3 w-full" name="restaurantFacilities" id="restaurantFacilities"
+                [(ngModel)]="HotelBooking.restaurantFacilities" required="">
+                <option value="" disabled selected>Do you want Restaurant Facilities</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+            <!-- <span
+                *ngIf="!hotelbooking.controls['restaurantFacilities'].valid && hotelbooking.controls['restaurantFacilities'].dirty "
+                class="text-red-600 text-center">It is a Required Field </span> -->
+        </div><br>
+
+        <div class="mx-6 my-3">
+            <button type="submit" class="text-center px-auto  border border-black  rounded-xl">Total Cost</button>
+        </div>
+        <div class="mx-6 my-3">
+            <h1 class="text-lg text-black ">Total Cost: {{HotelBooking.totalCost |currency:'INR'}}</h1>
+
+        </div>
+
+
+    </form>
+
+</div>

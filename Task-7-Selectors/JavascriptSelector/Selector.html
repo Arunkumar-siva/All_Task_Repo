@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript Selectors</title>
+</head>
+
+<body>
+    <h1 class="types">Types of Javascript selectors</h1>
+    <ul >
+        <li id="id">Get Element By Id</li>
+        <li id="name">Get Element By Name</li>
+        <li id="class">Get Element By Class name</li>
+        <li id="tag">Get Element By Tag name</li>
+    </ul>
+    <input type="text" name="selector" placeholder="Enter the Selector">
+    <button type="submit">Submit</button>
+    <script>
+       var Id=document.getElementById('id');
+       console.log(Id.textContent);
+    var classname=document.getElementsByClassName('types');
+      classname[0].textContent='These are the Types of Javascript Selectors';
+     const tag=document.getElementsByTagName('li');
+     console.log(tag.length);
+     var Name=document.getElementsByName('name');
+     console.log(Name.innerHtml='which type of selector');
+    </script>
+</body>
+
+</html>

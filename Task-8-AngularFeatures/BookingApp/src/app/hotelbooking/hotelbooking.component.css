@@ -1,0 +1,37 @@
+/* app.component.css or your component styles file */
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  button {
+    padding: 10px;
+  }
+  
+  .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    display: none;
+    flex-direction: column;
+    background-color: #fff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .dropdown-menu a {
+    padding: 10px;
+    text-decoration: none;
+    color: #333;
+    display: block;
+  }
+  
+  .dropdown-menu a:hover {
+    background-color: #f2f2f2;
+  }
+  
+  .dropdown:hover .dropdown-menu {
+    display: flex;
+    flex-direction: column;
+  }
+  

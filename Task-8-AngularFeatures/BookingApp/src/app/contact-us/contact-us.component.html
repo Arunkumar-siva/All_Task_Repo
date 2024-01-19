@@ -1,0 +1,67 @@
+<div class="flex  ">
+    <div class="  mx-20 w-96 mt-2 mb-10">
+       
+        
+        <form #detailsform="ngForm" (ngSubmit)="submitdetails(detailsform)" class="mx-5 my-5 border border-white">
+            <h1 class="text-center text-lg font-bold">Employee Details</h1><br>
+            <div>
+                <label for="EmpId">Employee Id</label><br>
+                <input type="text" name="EmpId" id="EmpId" ngModel placeholder="Employee Id"  class="border border-black w-full px-3" required>
+            </div><br>
+            <div>
+                <label for="EmployeeName">Employee Name</label><br>
+                <input type="text" name="EmployeeName" id="EmployeeName" ngModel placeholder="Employee Name" class="border border-black w-full px-3" required>
+            </div><br>
+            <div>
+                <label for="Designation">Designation</label><br>
+                <input type="text" name="Designation" id="Designation" ngModel placeholder="Designation"class="border border-black w-full px-3" required>
+            </div><br>
+            <div>
+                <label for="Date">Date of Joining</label><br>
+                <input type="date" name="Date" id="Date" ngModel placeholder="date of Joining"class="border border-black w-full px-3" required>
+                
+            </div><br>
+            <div>
+                <label for="Address">Address</label><br>
+                <input type="text" name="Address" id="Address" placeholder="Your Address"class="border border-black w-full px-3" ngModel required>
+        
+            </div><br>
+            <div>
+                <label for="Salary">Salary</label><br>
+                <input type="number" name="Salary" id="Salary" placeholder="Salary "class="border border-black w-full px-3" ngModel required >
+            </div><br>
+            <div class="mx-10 ">
+                <button type="submit" class="w-48 border bg-blue-400 border-black rounded-3xl">Submit</button>
+            </div>
+        </form>
+    </div>
+    <div class="mx-auto mt-8  px-auto">
+        <h1 class="text-center font-bold text-lg">Employee Details</h1><br>
+        <table class="mb-10">
+            <thead class=" border border-black mx-auto  ">
+              <tr >
+                <th class="border border-black" >Emp Id</th>
+                <th class="border border-black">Emp Name</th>
+                <th class="border border-black">Designation</th>
+                <th class="border border-black">Date of Joining</th>
+                <th class="border border-black">Address</th>
+                <th class="border border-black" *ngIf="!hide" disabled>Salary</th>
+              </tr>
+            </thead>
+            
+            <tbody class="border border-black text-center">
+              <tr *ngFor="let employee of detailsArray  ">
+                <td class="border border-black" >{{ employee.EmpId }}</td>
+                <td class="border border-black">{{ employee.EmployeeName }}</td>
+                <td class="border border-black">{{ employee.Designation }}</td>
+                <td class="border border-black">{{ employee.Date }}</td>
+                <td class="border border-black">{{ employee.Address }}</td>
+                <td class="border border-black" *ngIf="!hide" disabled>{{ employee.Salary }}</td>
+              </tr>
+            </tbody>
+          </table>
+          <h1 *ngIf="detailsArray.length<=0" class="mt-8 text-center" >No Data in the Table</h1>
+          <button  *ngIf="detailsArray.length>0" (click)="hideof()"  class="border border-black w-24" >{{state}}</button>
+          
+    </div>
+</div>
